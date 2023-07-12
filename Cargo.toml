@@ -1,0 +1,18 @@
+[package]
+name = "substreams-near-hello-world"
+version = "0.0.1"
+edition = "2021"
+
+[lib]
+name = "substreams"
+crate-type = ["cdylib"]
+
+[dependencies]
+bs58 = "0.5"
+prost = "0.11"
+substreams = "0.5"
+
+[profile.release]
+lto = true
+opt-level = 's'
+strip = "debuginfo"

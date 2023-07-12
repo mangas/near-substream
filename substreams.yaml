@@ -1,0 +1,26 @@
+specVersion: v0.1.0
+package:
+  name: substreams_near_hello_world
+  version: v0.1.0
+
+imports:
+  near: https://github.com/streamingfast/firehose-near/releases/download/v1.1.0/substreams-near-v1.1.0.spkg
+
+protobuf:
+  files:
+    - receipts.proto
+  importPaths:
+    - ./proto
+
+binaries:
+  default:
+    type: wasm/rust-v1
+    file: ./target/wasm32-unknown-unknown/release/substreams.wasm
+
+modules:
+  - name: map_block
+    kind: map
+    inputs:
+      - source: sf.near.type.v1.Block
+    output:
+      type: proto:receipts.v1.Events

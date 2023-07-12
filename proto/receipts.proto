@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package receipts.v1;
+
+message Receipts {
+    repeated Receipt chunk_receipts = 1;
+    repeated Receipt outcome_receipts = 2;
+}
+
+message Receipt {
+    string id = 1;
+}
