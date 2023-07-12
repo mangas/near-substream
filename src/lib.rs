@@ -10,7 +10,10 @@ fn map_block(blk: Block) -> Result<Receipts, substreams::errors::Error> {
     let mut out = Receipts::default();
 
     for shard in blk.shards {
-        let chunk = shard.chunk.unwrap();
+        let chunk = match shard.chunk {
+            Some(chunk) => chunk,
+            None => continue,
+        };
 
         for receipt in chunk.receipts {
             out.chunk_receipts.push(Receipt {
