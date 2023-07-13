@@ -23,4 +23,4 @@ modules:
     inputs:
       - source: sf.near.type.v1.Block
     output:
-      type: proto:receipts.v1.Events
+      type: proto:receipts.v1.Receipts
