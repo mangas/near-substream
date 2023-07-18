@@ -20,7 +20,16 @@ binaries:
 modules:
   - name: map_block
     kind: map
+    initialBlock: 9820214
     inputs:
       - source: sf.near.type.v1.Block
     output:
       type: proto:receipts.v1.Receipts
+  - name: graph_out
+    kind: map
+    initialBlock: 9820214
+    inputs:
+      - source: sf.near.type.v1.Block
+    output:
+      type: proto:sf.substreams.entity.v1.EntityChanges
+
